@@ -93,6 +93,7 @@ losetup -d ${LOOP}
 
 echo '################## make image ###########################'
 
+zip ${NAME}.img.zip ${NAME}.img
 gzip ${NAME}.img
 chmod a+rw ${NAME}.img.gz
 
