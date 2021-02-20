@@ -7,17 +7,21 @@ addons:
 script:
 - sudo ./build.sh ArchLinuxARM-rpi-latest
 - sudo ./build.sh ArchLinuxARM-rpi-2-latest
-# sudo ./build.sh ArchLinuxARM-rpi-3-latest
+# - sudo ./build.sh ArchLinuxARM-rpi-3-latest
 - sudo ./build.sh ArchLinuxARM-rpi-4-latest
+- sudo ./build.sh ArchLinuxARM-rpi-aarch64-latest
+- sudo ./build.sh ArchLinuxARM-rpi-aarch64-latest -rpi4
 deploy:
   provider: releases
   api_key:
-    secure: puN1b67ctptLrrMznaHVBZm6I02635lo94BX0cMxMSlph1UwjoXCjlLTV3/JgaMmD4nLMv1Ln+po22LTK/thiKblymTRQtwgksyCu8+Or0IiMYCXb58+QTmW1ROVrVVJ9nus2647UjGkTSA3n6JpH55KxFmwpcHf7N/xWvOhRyLWmGdPRwyoqilWoAptsZYIXsucJv6suI3whlx/hfMDyNQKt0BGUNE+WerMg+obY5c4dgjb/0Kt8HheEtQ1fb6qUeoxN93JYOYX4LZldFwwXV77X1ce7yEzhGtAryhUZBKfC0+Axc2zy/Jvg192B0E427ZU/D0xpT8Wnk0MOyakSBL9I3D2PYq9NNM+uNwPo6g7u+WVtL5nVXrgJRxVa4pLpTooRD1Iy5Sv+YIfOevrWj9kkC4KAqv0qsiUBYIiq9pZ8LYZR04QR8p/P/Ns9qnEUuF7hqfnoIlKn00wd8gJZsdzDk5sz5yMlBnoQip4cyBWpY2CbyVxBinYML+crv7gw4X+99ufidzrKNalg8PPeQEgqby3ehTuvGBzFZHs1J6y1frkMbx0krTjh7lhdbrt1rXanXllZe9pxhwcL9iYXwydx+U6Vnvidx4wSXgrg24e7i87lKubvaXOdlx6sbsRcFXVGDoMj18wLDbHTLwyzTBHM9t85Y8+2+KtOxIrgvc=
+    secure: "Il1h0X1g8zcRItKXmhfEwiWDdBNUCmgRJ6Shkm+He3FG4yyCrWtENEhvKNGZ9KVsI+QRyz2uUv85BuNDeAYP1XXoEz2s1VnqWvtpMOsbGGtrM5RB5e7KXej1cfYuwRg/qC/e9ZCGebc1dicg7CXLKK5gJjQh/AjqEbjrwAsRx7s+U6UNHjiO6ecbPJft8KIPq7N4XkuqPpEgpt3z/mxUE+dChkcILqAmWlM0v8Wg/4GCK/F7JQvlDZ0lIqZOaY/Fb3Yq42bgHLznImuEuLCs4wzTzDWM4h3OgM6YLEa9/fSjDORks0oAm745I4VlLU4UaDfzlHW4JsqNfqOwvbUkA3Z96V40u4lYgqnIk5kpWPJ9Yv41SnCRHdUgGAyaZk2CvbnV9sbVNQkrez6kM5+Tyz1P76OaG5ohHCcDrv/ok6jVRNvWkr3rplkM3WWWnWq33Pxs515T2epijEdFPSjSqZef7QZIfkR/4YRarHNtLwgv6JgwNlLXvopy0qHrj/0PFQBZknvmEfI4IAqp6XeIntsh97AXisH5KOonsemeA0gg760tAkSlVRamyuMTgP3dhWCo7uuuV84jF9D343FgVTHvLGQgEdBrye/OPId+VON71toAff1jT6b2qc/aNwA4eb9gRh0CMg345kNOlRpt1QylidtLZrGcRJvKzhLMjI4="
   file:
-  - ArchLinuxARM-rpi-latest.img.gz
-  - ArchLinuxARM-rpi-2-latest.img.gz
-  # ArchLinuxARM-rpi-3-latest.img.gz
-  - ArchLinuxARM-rpi-4-latest.img.gz
+  - ArchLinuxARM-rpi-latest.img.zip
+  - ArchLinuxARM-rpi-2-latest.img.zip
+  # - ArchLinuxARM-rpi-3-latest.img.zip
+  - ArchLinuxARM-rpi-4-latest.img.zip
+  - ArchLinuxARM-rpi-aarch64-latest.img.zip
+  - ArchLinuxARM-rpi-aarch64-latest.img-rpi4.zip
   skip_cleanup: true
   on:
     tags: true

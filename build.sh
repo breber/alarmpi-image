@@ -14,6 +14,7 @@ NAME=${1:-ArchLinuxARM-rpi-latest}
 #NAME=ArchLinuxARM-rpi-2-latest
 #NAME=ArchLinuxARM-rpi-3-latest
 #NAME=ArchLinuxARM-rpi-4-latest
+RPIMODEL=${2}
 
 echo '################## download image #######################'
 
@@ -86,6 +87,10 @@ tar xzf ${NAME}.tar.gz -C root . >/dev/null 2>&1
 sync
 mv root/boot/* boot
 
+if [ "${RPIMODEL}" == "-rpi4" ]; then
+    sed -i 's/mmcblk0/mmcblk1/g' root/etc/fstab
+fi
+
 umount boot root
 rmdir boot root
 partx -d ${LOOP}
@@ -93,7 +98,8 @@ losetup -d ${LOOP}
 
 echo '################## make image ###########################'
 
-gzip ${NAME}.img
-chmod a+rw ${NAME}.img.gz
+zip ${NAME}.img${RPIMODEL}.zip ${NAME}.img
+# gzip ${NAME}.img
+# chmod a+rw ${NAME}.img.gz
 
 echo '################## done #################################'
